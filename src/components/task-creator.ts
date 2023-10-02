@@ -18,12 +18,16 @@ export class TaskCreator extends LitElement {
 
     createTask(event: Event) {
         event.preventDefault();
-        let task = document.createElement("task-element");
-        task.setAttribute("taskName", this._taskInput.value);
-        this._taskCreator.appendChild(task);
-        this._taskCreator.value = "";
-        console.log(this._taskInput)
-
+        let options = {
+            bubbles: true,
+            composed: true,
+            detail: {
+                task: this._taskInput.value
+            }
+        }
+        let customEvent = (new CustomEvent("task-created", options));
+        this.dispatchEvent(customEvent);
+        this._taskInput.value = "";
     }
 
     handleFormSubmit(event: Event) {
