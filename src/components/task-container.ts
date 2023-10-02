@@ -17,7 +17,7 @@ export class TaskContainer extends LitElement {
     render() {
         return html`
             <div class="taskContainer">Hi</div>
-            <button-element color="aquamarine" name="New Task"></button-element>
+        
         `;
     }
 }

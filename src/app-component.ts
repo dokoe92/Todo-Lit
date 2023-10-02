@@ -7,6 +7,7 @@ class AppComponent extends LitElement {
     render() {
         return html`
             <task-container></task-container>
+            <task-creator></task-creator>
         `;
 
     }

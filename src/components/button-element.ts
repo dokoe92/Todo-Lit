@@ -5,15 +5,24 @@ import {customElement, property} from 'lit/decorators.js';
 export class ButtonElement extends LitElement {
     // Define scoped styles right with your component, in plain CSS
     static styles = css`
+      @keyframes clickAnimation {
+        0% { transform: scale(1); }
+        50% { transform: scale(0.95); }
+        100% { transform: scale(1); }
+      }
+
+      button:active {
+        animation: clickAnimation 0.2s forwards;
+      }
     
   `;
 
     // Declare reactive properties
     @property({type: String})
-    name?: string = "button";
+    name?: string;
 
     @property({type: String})
-    color?: string = "gray";
+    color?: string;
 
     // Render the UI as a function of component state
     render() {
